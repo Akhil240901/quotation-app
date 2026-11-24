@@ -24,7 +24,7 @@ export const UPVC_WINDOW_TYPES: UPVCWindowType[] = [
   '3 Track (4 Shutter)',
   'Openable',
   'French Door',
-  'Ventilation'
+  'Ventilation',
 ];
 
 export const DEFAULT_RATES: Record<string, number> = {
@@ -42,7 +42,7 @@ export const DEFAULT_RATES: Record<string, number> = {
   'UPVC:3 Track (4 Shutter)': 650,
   'UPVC:Openable': 580,
   'UPVC:French Door': 680,
-  'UPVC:Ventilation': 420,
+  'Ventilation':420,
 };
 
 export const GLASS_OPTIONS = [
