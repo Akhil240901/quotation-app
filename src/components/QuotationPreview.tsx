@@ -124,100 +124,100 @@ export const QuotationPreview: React.FC<QuotationPreviewProps> = ({
               </div>
             ) : (
               items.map((item, idx) => (
-              <div
-                key={item.id}
-                className="py-3 sm:py-4 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-4 items-center break-inside-avoid"
-              >
-                {/* COLUMN 1: Image / Technical Elevation with dimensions */}
-                <div className="sm:col-span-5 flex flex-col items-center justify-center bg-slate-50 border border-slate-200 rounded p-2 sm:p-2.5">
-                  <div className="w-full flex justify-between items-center text-[10px] font-mono text-slate-500 mb-1">
-                    <span className="font-bold text-slate-700">Item #{idx + 1}</span>
-                    <span className="uppercase text-[9px] bg-slate-200 px-1 py-0.5 rounded text-slate-700 font-semibold">
-                      {item.material}
-                    </span>
-                  </div>
-
-                  <WindowSchematic
-                    material={item.material}
-                    windowType={item.windowType}
-                    widthMm={item.widthMm}
-                    heightMm={item.heightMm}
-                    areaSqFt={item.areaSqFt}
-                    compact
-                    className="w-full"
-                  />
-
-                  <div className="mt-1 text-[10px] font-mono text-slate-600 font-medium text-center">
-                    Dimension: {item.widthMm} mm (W) × {item.heightMm} mm (H)
-                  </div>
-                </div>
-
-                {/* COLUMN 2: Details, Specifications, Dimensions & Commercials */}
-                <div className="sm:col-span-7 space-y-2 text-xs">
-                  <div>
-                    <div className="flex items-baseline justify-between">
-                      <h4 className="font-bold text-slate-900 text-sm">
-                        {item.locationLabel || `Opening Item #${idx + 1}`}
-                      </h4>
-                      <span className="font-mono text-xs font-semibold text-slate-500">
-                        {item.itemCode || `W-${idx + 1}`}
+                <div
+                  key={item.id}
+                  className="py-3 sm:py-4 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-4 items-center break-inside-avoid"
+                >
+                  {/* COLUMN 1: Image / Technical Elevation with dimensions */}
+                  <div className="sm:col-span-5 flex flex-col items-center justify-center bg-slate-50 border border-slate-200 rounded p-2 sm:p-2.5">
+                    <div className="w-full flex justify-between items-center text-[10px] font-mono text-slate-500 mb-1">
+                      <span className="font-bold text-slate-700">Item #{idx + 1}</span>
+                      <span className="uppercase text-[9px] bg-slate-200 px-1 py-0.5 rounded text-slate-700 font-semibold">
+                        {item.material}
                       </span>
                     </div>
-                    <div className="text-slate-700 font-medium text-xs mt-0.5">
-                      Type: <span className="font-semibold text-slate-900">{item.windowType}</span>
+
+                    <WindowSchematic
+                      material={item.material}
+                      windowType={item.windowType}
+                      widthMm={item.widthMm}
+                      heightMm={item.heightMm}
+                      areaSqFt={item.areaSqFt}
+                      compact
+                      className="w-full"
+                    />
+
+                    <div className="mt-1 text-[10px] font-mono text-slate-600 font-medium text-center">
+                      Dimension: {item.widthMm} mm (W) × {item.heightMm} mm (H)
                     </div>
                   </div>
 
-                  {/* Specifications bullet row */}
-                  <div className="bg-slate-50 p-2 rounded border border-slate-200 text-[11px] text-slate-600 space-y-0.5">
+                  {/* COLUMN 2: Details, Specifications, Dimensions & Commercials */}
+                  <div className="sm:col-span-7 space-y-2 text-xs">
                     <div>
-                      <span className="text-slate-500 font-medium">Glass: </span>
-                      <span className="text-slate-800">{item.glassType}</span>
+                      <div className="flex items-baseline justify-between">
+                        <h4 className="font-bold text-slate-900 text-sm">
+                          {item.locationLabel || `Opening Item #${idx + 1}`}
+                        </h4>
+                        <span className="font-mono text-xs font-semibold text-slate-500">
+                          {item.itemCode || `W-${idx + 1}`}
+                        </span>
+                      </div>
+                      <div className="text-slate-700 font-medium text-xs mt-0.5">
+                        Type: <span className="font-semibold text-slate-900">{item.windowType}</span>
+                      </div>
                     </div>
-                    <div>
-                      <span className="text-slate-500 font-medium">Profile Finish: </span>
-                      <span className="text-slate-800">{item.colorFinish}</span>
-                    </div>
-                    {item.meshOption && item.meshOption !== 'No Mosquito Mesh' && (
+
+                    {/* Specifications bullet row */}
+                    <div className="bg-slate-50 p-2 rounded border border-slate-200 text-[11px] text-slate-600 space-y-0.5">
                       <div>
-                        <span className="text-slate-500 font-medium">Mesh: </span>
-                        <span className="text-slate-800">{item.meshOption}</span>
+                        <span className="text-slate-500 font-medium">Glass: </span>
+                        <span className="text-slate-800">{item.glassType}</span>
                       </div>
-                    )}
-                    {item.customNotes && (
-                      <div className="italic text-slate-500 text-[10px]">
-                        Note: {item.customNotes}
+                      <div>
+                        <span className="text-slate-500 font-medium">Profile Finish: </span>
+                        <span className="text-slate-800">{item.colorFinish}</span>
                       </div>
-                    )}
-                  </div>
+                      {item.meshOption && item.meshOption !== 'No Mosquito Mesh' && (
+                        <div>
+                          <span className="text-slate-500 font-medium">Mesh: </span>
+                          <span className="text-slate-800">{item.meshOption}</span>
+                        </div>
+                      )}
+                      {item.customNotes && (
+                        <div className="italic text-slate-500 text-[10px]">
+                          Note: {item.customNotes}
+                        </div>
+                      )}
+                    </div>
 
-                  {/* Detailed Dimension and Calculation Math */}
-                  <div className="font-mono text-[11px] text-slate-600 flex flex-wrap gap-x-3 gap-y-1">
-                    <div>
-                      Area: <strong className="text-slate-900">{item.areaSqFt.toFixed(1)} Sq.Ft</strong>
+                    {/* Detailed Dimension and Calculation Math */}
+                    <div className="font-mono text-[11px] text-slate-600 flex flex-wrap gap-x-3 gap-y-1">
+                      <div>
+                        Area: <strong className="text-slate-900">{item.areaSqFt.toFixed(1)} Sq.Ft</strong>
+                      </div>
+                      <div className="text-slate-400 hidden xs:inline">|</div>
+                      <div>
+                        Rate: <strong className="text-slate-900">₹{item.ratePerSqFt} / sq.ft</strong>
+                      </div>
+                      <div className="text-slate-400 hidden xs:inline">|</div>
+                      <div>
+                        Quantity: <strong className="text-slate-900">{item.quantity} Nos.</strong>
+                      </div>
                     </div>
-                    <div className="text-slate-400 hidden xs:inline">|</div>
-                    <div>
-                      Rate: <strong className="text-slate-900">₹{item.ratePerSqFt} / sq.ft</strong>
-                    </div>
-                    <div className="text-slate-400 hidden xs:inline">|</div>
-                    <div>
-                      Quantity: <strong className="text-slate-900">{item.quantity} Nos.</strong>
-                    </div>
-                  </div>
 
-                  {/* Pricing sub-total row */}
-                  <div className="flex flex-wrap justify-between items-center gap-1 pt-1 border-t border-slate-200">
-                    <span className="text-[11px] text-slate-500 font-mono">
-                      Calculation: ({item.areaSqFt.toFixed(1)} sq.ft × ₹{item.ratePerSqFt} × {item.quantity})
-                    </span>
-                    <span className="font-mono font-bold text-sm text-slate-900">
-                      {formatCurrency(item.itemTotal)}
-                    </span>
+                    {/* Pricing sub-total row */}
+                    <div className="flex flex-wrap justify-between items-center gap-1 pt-1 border-t border-slate-200">
+                      <span className="text-[11px] text-slate-500 font-mono">
+                        Calculation: ({item.areaSqFt.toFixed(1)} sq.ft × ₹{item.ratePerSqFt} × {item.quantity})
+                      </span>
+                      <span className="font-mono font-bold text-sm text-slate-900">
+                        {formatCurrency(item.itemTotal)}
+                      </span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            )))}
+              )))}
           </div>
         </div>
 
@@ -226,21 +226,7 @@ export const QuotationPreview: React.FC<QuotationPreviewProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-start">
             {/* Left Box: Bank Details for Payment as per Term #3 */}
             <div className="sm:col-span-6 space-y-2 text-xs">
-              <div className="bg-slate-50 border border-slate-200 rounded p-3">
-                <span className="text-[10px] uppercase font-mono tracking-wider font-bold text-slate-800 block mb-1">
-                  Bank Details for P.O & Payments
-                </span>
-                <p className="text-[10px] text-slate-500 mb-1.5 font-medium">
-                  (P.O & Payments should be made in the name of <strong>Shri Ram Glass</strong>)
-                </p>
-                <div className="font-mono text-[11px] text-slate-700 space-y-0.5">
-                  <p><span className="text-slate-500">Account Name:</span> <strong className="text-slate-900">{bank.accountName}</strong></p>
-                  <p><span className="text-slate-500">Bank Name:</span> <strong>{bank.bankName}</strong></p>
-                  <p><span className="text-slate-500">Account Number:</span> <strong className="text-slate-900 font-bold">{bank.accountNumber}</strong></p>
-                  <p><span className="text-slate-500">IFSC Code:</span> <strong className="text-slate-900">{bank.ifscCode}</strong></p>
-                  <p><span className="text-slate-500">Branch:</span> {bank.branch}</p>
-                </div>
-              </div>
+
 
               <div className="text-[11px] text-slate-500 font-mono px-1">
                 Total Openings: <strong>{summary.totalQuantity} Nos.</strong> | Total Area: <strong>{summary.totalSqFt.toFixed(1)} Sq.Ft</strong>
@@ -309,16 +295,13 @@ export const QuotationPreview: React.FC<QuotationPreviewProps> = ({
 
             {/* 3. P.O & Payments */}
             <div>
-              <p><strong className="text-slate-900">3.</strong> P.O & Payments should made in the name of <strong>Shri Ram Glass</strong>.</p>
+              <p><strong className="text-slate-900">3.</strong> P.O & Payments should made in the name of <strong>Shri Ashtavinayak Glass</strong>.</p>
               <div className="pl-1 sm:pl-3 font-mono text-[9px] sm:text-[9.5px] text-slate-600 bg-slate-50 p-2 my-1 rounded border border-slate-200 flex flex-wrap gap-x-2 gap-y-1">
-                <span>Account Name : <strong>SHRI RAM GLASS</strong></span>
+                <span>Account Name : <strong>SHRI ASHTAVINAYAK GLASS</strong></span>
                 <span className="text-slate-300 hidden sm:inline">|</span>
                 <span>Bank Name : <strong>BANK OF BARODA</strong></span>
                 <span className="text-slate-300 hidden sm:inline">|</span>
-                <span>Account Number : <strong>59070200001606</strong></span>
-                <span className="text-slate-300 hidden sm:inline">|</span>
-                <span>IFSC : <strong>BARB0GORELA</strong></span>
-                <span className="text-slate-300 hidden sm:inline">|</span>
+
                 <span>Branch : <strong>GONDIA</strong></span>
               </div>
             </div>

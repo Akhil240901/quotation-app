@@ -493,6 +493,89 @@ export const WindowSchematic: React.FC<WindowSchematicProps> = ({
         );
       }
 
+      case 'Ventilation': {
+        const slatCount = 4;
+        const slatHeight = innerH / slatCount;
+        return (
+          <g>
+            {/* Background frosted glass */}
+            <rect
+              x={innerX + 1}
+              y={innerY + 1}
+              width={innerW - 2}
+              height={innerH - 2}
+              fill="#f0f9ff"
+              stroke={sashBorder}
+              strokeWidth="1.5"
+            />
+            {/* Louver Slats / Glass Blades */}
+            {Array.from({ length: slatCount }).map((_, i) => {
+              const yPos = innerY + i * slatHeight;
+              return (
+                <g key={i}>
+                  {/* Louver Glass blade with subtle tilt */}
+                  <line
+                    x1={innerX + 3}
+                    y1={yPos + slatHeight - 2}
+                    x2={innerX + innerW - 3}
+                    y2={yPos + slatHeight - 2}
+                    stroke="#0284c7"
+                    strokeWidth="1.5"
+                  />
+                  {/* Slat divider / bracket on edges */}
+                  <rect
+                    x={innerX + 2}
+                    y={yPos + slatHeight - 6}
+                    width="4"
+                    height="6"
+                    fill="#334155"
+                    rx="0.5"
+                  />
+                  <rect
+                    x={innerX + innerW - 6}
+                    y={yPos + slatHeight - 6}
+                    width="4"
+                    height="6"
+                    fill="#334155"
+                    rx="0.5"
+                  />
+                  {/* Glass reflection line */}
+                  <line
+                    x1={innerX + 8}
+                    y1={yPos + 4}
+                    x2={innerX + innerW - 14}
+                    y2={yPos + slatHeight - 4}
+                    stroke={glassBorder}
+                    strokeWidth="1"
+                    strokeDasharray="2 4"
+                  />
+                </g>
+              );
+            })}
+            {/* Top-hung ventilator swing dashed line */}
+            <polyline
+              points={`${innerX + 4},${innerY + 4} ${innerX + innerW / 2},${innerY + innerH - 6} ${innerX + innerW - 4},${innerY + 4}`}
+              fill="none"
+              stroke="#0369a1"
+              strokeWidth="1.2"
+              strokeDasharray="3 3"
+            />
+            {/* Ventilation label */}
+            <text
+              x={innerX + innerW / 2}
+              y={innerY + innerH / 2 + 3}
+              fontSize="8"
+              fill="#475569"
+              textAnchor="middle"
+              fontWeight="600"
+              letterSpacing="0.05em"
+            >
+              LOUVER / VENT
+            </text>
+          </g>
+        );
+      }
+
       default:
         return (
           <rect

@@ -13,7 +13,8 @@ export type UPVCWindowType =
   | '3 Track (3 Shutter)'
   | '3 Track (4 Shutter)'
   | 'Openable'
-  | 'French Door';
+  | 'French Door'
+  | 'Ventilation';
 
 export type WindowType = AluminiumWindowType | UPVCWindowType;
 
